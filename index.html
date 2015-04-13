@@ -1,0 +1,11 @@
+<index: element="typeahead">
+  <div class="typeahead">
+    <input class="typeahead-input form-control" type="text" on-keyup="toggleResults($event, value)" value="{{value}}" placeholder="{{placeholder}}">
+    <div class="typeahead-selection{{if show}} show{{/if}}">
+      {{each results as #result}}
+        <div class="result-item" on-click="selectItem(#result)">
+          {{#result.value}}
+        </div>
+      {{/each}}
+    </div>
+  </div>

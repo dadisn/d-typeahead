@@ -1,0 +1,18 @@
+{
+  "name": "d-typeahead",
+  "version": "0.1.0",
+  "description": "A (very) simple typeahead component for DerbyJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dadisn/d-typeahead.git"
+  },
+  "author": "Daði Snær Skúlason",
+  "bugs": {
+    "url": "https://github.com/dadisn/d-typeahead/issues"
+  },
+  "homepage": "https://github.com/dadisn/d-typeahead"
+}
