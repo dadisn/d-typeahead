@@ -8,7 +8,7 @@ Typeahead.prototype.style = __dirname;
 Typeahead.prototype.create = function(model, dom) {
   this.hide();
   this.typeaheadFilter = model.filter('options', 'value', function(item, id, coll, value) {
-    if(!value) return false;
+    if(!value || !item || !item.value) return false;
     if(item.value.toLowerCase().indexOf(value.toLowerCase()) > -1) return true;
     return false;
   });
