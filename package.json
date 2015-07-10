@@ -1,6 +1,6 @@
 {
   "name": "d-typeahead",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A (very) simple typeahead component for DerbyJS",
   "main": "index.js",
   "scripts": {
