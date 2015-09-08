@@ -6,10 +6,12 @@ Typeahead.prototype.view = __dirname;
 Typeahead.prototype.style = __dirname;
 
 Typeahead.prototype.create = function(model, dom) {
+  model.setNull('field', 'value');
   this.hide();
-  this.typeaheadFilter = model.filter('options', 'value', function(item, id, coll, value) {
-    if(!value || !item || !item.value) return false;
-    if(item.value.toLowerCase().indexOf(value.toLowerCase()) > -1) return true;
+  this.typeaheadFilter = model.filter('options', 'value', 'field', 'mustFulfill', {limit: 10}, function(item, id, coll, value, field, mustFulfill) {
+    if(!value || !item || !item[field]) return false;
+    if(mustFulfill && !mustFulfill(item)) return false;
+    if(item[field].toLowerCase().indexOf(value.toLowerCase()) > -1) return true;
     return false;
   });
   model.ref('results', this.typeaheadFilter);
@@ -24,7 +26,9 @@ Typeahead.prototype.hide = function() {
 };
 
 Typeahead.prototype.selectItem = function(item) {
-  this.model.set('value', item.value);
+  var field = this.model.get('field');
+  this.emit('select', item);
+  this.model.set('value', item[field]);
   this.hide();
 };
 

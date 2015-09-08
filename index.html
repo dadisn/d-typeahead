@@ -4,7 +4,7 @@
     <div class="typeahead-selection{{if show}} show{{/if}}">
       {{each results as #result}}
         <div class="result-item" on-click="selectItem(#result)">
-          {{#result.value}}
+          {{#result[field]}}
         </div>
       {{/each}}
     </div>
