@@ -29,6 +29,7 @@ Typeahead.prototype.selectItem = function(item) {
   var field = this.model.get('field');
   this.emit('select', item);
   this.model.set('value', item[field]);
+  this.model.set('selected', item);
   this.hide();
 };
 
